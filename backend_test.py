@@ -30,8 +30,8 @@ def test_root_endpoint():
     """Test the root endpoint to ensure server is running"""
     print_info("Testing root endpoint...")
     try:
-        # The root endpoint is at /api/ not at the base URL
-        response = requests.get(f"{API_BASE_URL}/")
+        # The root endpoint is at the base URL with no /api prefix
+        response = requests.get(f"{BACKEND_URL}/")
         if response.status_code == 200:
             data = response.json()
             if "message" in data and "Worldwide Radio Station API" in data["message"]:
